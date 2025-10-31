@@ -5,7 +5,7 @@ export const AnimatedLogoCloud = () => {
     if (!logos.length) return null;
 
     return (
-        <div className="max-w-4xl mx-auto py-6">
+        <div className="max-w-5xl mx-auto py-6">
             <div className="mx-auto w-full px-4 md:px-8">
                 <div
                     className="group relative flex gap-6 overflow-hidden p-2"

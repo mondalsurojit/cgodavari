@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  // { label: 'About', href: '/about' }
+  // { label: 'About', href: '#about' },
   { label: 'Deliverables', href: '/deliverables' },
   { label: 'Members', href: '/members' },
   { label: 'Contact', href: '/contact' }
@@ -109,38 +109,67 @@ export const TEAM_MEMBERS = [
 
 export const CONTACT_INFO = {
   address: {
-    line1: 'Technological Research Park',
-    line2: 'IIT Hyderabad',
-    line3: 'Near NH-65, Sangareddy, Kandi',
-    line4: 'Telangana 502285'
+    line1: 'Technological Research Park, IIT Hyderabad',
+    line2: 'Near NH-65, Sangareddy, Kandi, Telangana 502285',
   },
   email: 'asif@ce.iith.ac.in',
   phone: '+91 040 2301 6000'
 };
 
 export const SOCIAL_LINKS = [
-  { name: 'Instagram', url: 'https://www.instagram.com/cgodavari.india?utm_source=qr&igsh=MWYyZ%2021zNm80cmJjMA==', icon: 'Instagram' },
-  { name: 'Twitter', url: '#', icon: 'Twitter' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/cgodavari-india-074018331/', icon: 'Linkedin' },
-  { name: 'YouTube', url: 'https://www.youtube.com/channel/UCWI-5b0c3oWTlsWlhQfPJ5Q', icon: 'Youtube' }
+  { name: 'Instagram', url: 'https://www.instagram.com/cgodavari.india/' },
+  { name: 'Linkedin', url: 'https://www.linkedin.com/in/cgodavari-india-074018331/' },
+  { name: 'Youtube', url: 'https://www.youtube.com/channel/UCWI-5b0c3oWTlsWlhQfPJ5Q' }
 ];
 
 export const LOGOS = [
   {
-    "name": "Python",
-    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    "name": "1",
+    "url": "/member_institutes/1.jpeg"
   },
   {
-    "name": "Python",
-    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    "name": "2",
+    "url": "/member_institutes/2.jpeg"
   },
   {
-    "name": "Python",
-    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    "name": "3",
+    "url": "/member_institutes/3.jpeg"
   },
   {
-    "name": "Python",
-    "url": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    "name": "4",
+    "url": "/member_institutes/4.jpeg"
+  },
+  {
+    "name": "5",
+    "url": "/member_institutes/5.jpeg"
+  },
+  {
+    "name": "6",
+    "url": "/member_institutes/6.jpeg"
+  },
+  {
+    "name": "7",
+    "url": "/member_institutes/7.jpeg"
+  },
+  {
+    "name": "8",
+    "url": "/member_institutes/8.jpeg"
+  },
+  {
+    "name": "9",
+    "url": "/member_institutes/9.jpeg"
+  },
+  {
+    "name": "10",
+    "url": "/member_institutes/10.jpeg"
+  },
+  {
+    "name": "11",
+    "url": "/member_institutes/11.jpeg"
+  },
+  {
+    "name": "12",
+    "url": "/member_institutes/12.jpeg"
   }
 ]
 
