@@ -119,10 +119,10 @@ export const CONTACT_INFO = {
 };
 
 export const SOCIAL_LINKS = [
-  { name: 'Facebook', url: '#', icon: 'Facebook' },
+  { name: 'Instagram', url: 'https://www.instagram.com/cgodavari.india?utm_source=qr&igsh=MWYyZ%2021zNm80cmJjMA==', icon: 'Instagram' },
   { name: 'Twitter', url: '#', icon: 'Twitter' },
-  { name: 'LinkedIn', url: '#', icon: 'Linkedin' },
-  { name: 'YouTube', url: '#', icon: 'Youtube' }
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/cgodavari-india-074018331/', icon: 'Linkedin' },
+  { name: 'YouTube', url: 'https://www.youtube.com/channel/UCWI-5b0c3oWTlsWlhQfPJ5Q', icon: 'Youtube' }
 ];
 
 export const LOGOS = [
