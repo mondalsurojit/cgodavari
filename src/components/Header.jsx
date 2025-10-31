@@ -9,18 +9,16 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-md">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-4">
-            <div className="flex items-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
-                cG
-              </div>
-              <div className="ml-3">
-                <h1 className="text-xl font-bold text-gray-900">cGodavari</h1>
-                <p className="text-xs text-gray-600">IIT Hyderabad</p>
-              </div>
-            </div>
-          </div>
+          {/* Logo only (no rounded corners) */}
+          <a href="/" className="flex items-center">
+            <img
+              src="/cgodavari-logo.png"
+              alt="cGodavari Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </a>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {NAV_LINKS.map((link) => (
               <a
@@ -33,6 +31,7 @@ const Header = () => {
             ))}
           </div>
 
+          {/* Mobile Menu Toggle */}
           <button
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -41,6 +40,7 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
             {NAV_LINKS.map((link) => (

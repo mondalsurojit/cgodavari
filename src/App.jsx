@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import About from './pages/About';
+// import About from './pages/About';
 import Research from './pages/Research';
 import Deliverables from './pages/Deliverables';
 import Members from './pages/Members';
@@ -16,7 +16,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/about" element={<About />} /> */}
           <Route path="/research" element={<Research />} />
           <Route path="/deliverables" element={<Deliverables />} />
           <Route path="/members" element={<Members />} />

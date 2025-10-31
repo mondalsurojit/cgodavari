@@ -1,7 +1,7 @@
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Research', href: '/research' },
+  // { label: 'About', href: '/about' }
+  { label: 'Deliverables', href: '/deliverables' },
   { label: 'Members', href: '/members' },
   { label: 'Contact', href: '/contact' }
 ];
@@ -9,29 +9,31 @@ export const NAV_LINKS = [
 export const HERO_SLIDES = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1920',
-    title: 'Godavari River Basin Management',
-    description: 'Advancing sustainable solutions for India\'s second-longest river basin'
+    image: '/hero/1.jpeg',
+    title: 'MoA Signing and Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; February 28, 2024',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1584267161849-a14d62304b3f?w=1920',
-    title: 'Sustainable Water Research',
-    description: 'Innovative approaches to water conservation and quality management'
+    image: '/hero/2.jpeg',
+    title: 'MoA Signing and Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; February 28, 2024',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920',
-    title: 'Environmental Conservation',
-    description: 'Protecting biodiversity and ecosystem health across the basin'
+    image: '/hero/3.jpeg',
+    title: 'Initiation Workshop IIT Hyderabad',
   },
   {
     id: 4,
-    image: 'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920',
-    title: 'River Ecosystem Studies',
-    description: 'Understanding complex interactions in aquatic environments'
-  }
+    image: '/hero/4.jpeg',
+    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May 2024',
+  },
+  {
+    id: 5,
+    image: '/hero/5.jpeg',
+    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May 2024',
+  },
 ];
+
 
 export const RESEARCH_AREAS = [
   {
@@ -63,31 +65,45 @@ export const RESEARCH_AREAS = [
 export const TEAM_MEMBERS = [
   {
     id: 1,
-    name: 'Dr. Asif Qureshi',
-    designation: 'Principal Investigator',
-    institution: 'IIT Hyderabad',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400'
+    name: "Asif Qureshi",
+    designation: "Faculty Member",
+    institution: "Dept. of Civil Engineering",
+    image: "/members/1.jpeg"
   },
   {
     id: 2,
-    name: 'Dr. Priya Sharma',
-    designation: 'Senior Research Fellow',
-    institution: 'IIT Hyderabad',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400'
+    name: "Debraj Bhattacharyya",
+    designation: "Faculty Member",
+    institution: "Dept. of Civil Engineering",
+    image: "/members/2.jpeg"
   },
   {
     id: 3,
-    name: 'Dr. Rajesh Kumar',
-    designation: 'Co-Investigator',
-    institution: 'CSIR-NEERI',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400'
+    name: "Pritha Chatterjee",
+    designation: "Faculty Member",
+    institution: "Dept. of Civil Engineering",
+    image: "/members/3.jpeg"
   },
   {
     id: 4,
-    name: 'Dr. Anita Reddy',
-    designation: 'Research Associate',
-    institution: 'IIT Hyderabad',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400'
+    name: "Satish Regonda",
+    designation: "Faculty Member",
+    institution: "Dept. of Civil Engineering",
+    image: "/members/4.jpeg"
+  },
+  {
+    id: 5,
+    name: "Anindita Majumdar",
+    designation: "Faculty Member",
+    institution: "Dept. of Liberal Arts",
+    image: "/members/5.jpeg"
+  },
+  {
+    id: 6,
+    name: "K.P. Prabheesh",
+    designation: "Faculty Member",
+    institution: "Dept. of Liberal Arts",
+    image: "/members/6.jpeg"
   }
 ];
 
