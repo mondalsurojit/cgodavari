@@ -40,7 +40,7 @@ const ProjectTimeline = ({ data }) => {
         maintainAspectRatio: false,
         plugins: {
             legend: { display: false },
-            tooltip: { enabled: false }, // removed tooltip as requested
+            tooltip: { enabled: false },
         },
         scales: {
             y: {
@@ -122,10 +122,11 @@ const Deliverables = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Project Deliverables</h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto mb-2">
             Comprehensive overview of research reports, datasets, and outcomes across all project quarters
           </p>
+          <p className="text-sm text-gray-500">Start Date: <span className="font-semibold text-gray-700">01/04/2024</span></p>
         </div>
 
         {/* Collapsible Chart Timeline */}
@@ -133,7 +134,6 @@ const Deliverables = () => {
 
         {/* Filters and Search */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          {/* Left side: Search + Quarter */}
           <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
             <div className="relative w-full md:w-64">
               <Search className="absolute left-3 top-3 text-gray-400" size={20} />
@@ -160,7 +160,6 @@ const Deliverables = () => {
             </div>
           </div>
 
-          {/* Right side: Count */}
           <div className="text-sm text-gray-600 whitespace-nowrap">
             Showing {totalDeliverables} deliverables
           </div>
@@ -178,9 +177,6 @@ const Deliverables = () => {
                   <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
                     Deliverable
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-white uppercase tracking-wider">
-                    Outcome
-                  </th>
                 </tr>
               </thead>
 
@@ -193,21 +189,12 @@ const Deliverables = () => {
                     <React.Fragment key={qIndex}>
                       {quarterData.items.map((item, iIndex) => {
                         const isFirst = iIndex === 0;
-                        const rowRef = useRef(null);
-
-                        useEffect(() => {
-                          if (rowRef.current && !isExpanded && isCollapsible) {
-                            const rowHeight = rowRef.current.offsetHeight;
-                            rowRef.current.style.setProperty('--fade-height', `${rowHeight / 2}px`);
-                          }
-                        }, [isExpanded, isCollapsible]);
 
                         return (
                           <tr
                             key={`${qIndex}-${iIndex}`}
-                            ref={isFirst ? rowRef : null}
-                            className={`transition-all relative ${
-                              !isExpanded && isCollapsible ? (isFirst ? 'relative' : 'hidden') : ''
+                            className={`transition-all ${
+                              !isExpanded && isCollapsible ? (isFirst ? '' : 'hidden') : ''
                             } hover:bg-gray-50`}
                           >
                             {isFirst && (
@@ -225,25 +212,10 @@ const Deliverables = () => {
                                       <ChevronDown size={16} className="text-blue-600" />
                                     ))}
                                 </div>
-
-                                {/* dynamic gradient fade for collapsed view */}
-                                {!isExpanded && isCollapsible && (
-                                  <div
-                                    className="absolute bottom-0 left-0 w-full pointer-events-none"
-                                    style={{
-                                      height: 'var(--fade-height, 50%)',
-                                      background:
-                                        'linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0.6), transparent)'
-                                    }}
-                                  />
-                                )}
                               </td>
                             )}
                             <td className="px-6 py-4 text-sm font-medium text-gray-900">
                               {item.title}
-                            </td>
-                            <td className="px-6 py-4 text-sm text-gray-600 max-w-md">
-                              <div className="line-clamp-2">{item.outcome}</div>
                             </td>
                           </tr>
                         );
