@@ -96,47 +96,9 @@ const Reports = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 opacity-60 pointer-events-none">
-                        {Object.entries(statusConfig).map(([status, cfg]) => {
-                            const Icon = cfg.icon;
-                            return (
-                                <div
-                                    key={status}
-                                    className={`flex items-center justify-between rounded-full px-4 py-2 text-sm font-medium w-full border ${cfg.borderColor} ${cfg.bgColor} ${cfg.textColor}`}
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <Icon size={16} className={cfg.iconColor} />
-                                        <span>{status}</span>
-                                    </div>
-                                    <span className={`flex items-center justify-center w-6 h-6 rounded-full border text-xs font-bold ${cfg.textColor} ${cfg.borderColor}`}>0</span>
-                                </div>
-                            );
-                        })}
-                    </div>
-
-                    <div className="bg-white rounded-lg shadow-sm p-4 mb-6 opacity-60">
-                        <div className="h-10 bg-gray-200 rounded mb-2" />
-                        <div className="h-10 bg-gray-200 rounded w-1/2" />
-                    </div>
-
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {Array.from({ length: 6 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full animate-pulse"
-                            >
-                                <div className="w-full h-40 bg-gray-200" />
-                                <div className="p-4 flex flex-col flex-grow">
-                                    <div className="h-4 bg-gray-200 rounded w-2/3 mb-3" />
-                                    <div className="h-3 bg-gray-200 rounded w-full mb-2" />
-                                    <div className="h-3 bg-gray-200 rounded w-5/6 mb-2" />
-                                    <div className="h-3 bg-gray-200 rounded w-3/4 mb-3" />
-                                    <div className="flex justify-between mt-auto">
-                                        <div className="h-5 w-20 bg-gray-200 rounded" />
-                                        <div className="h-5 w-16 bg-gray-200 rounded" />
-                                    </div>
-                                </div>
-                            </div>
+                            <ReportCard key={i} loading />
                         ))}
                     </div>
                 </div>
@@ -254,8 +216,27 @@ const Reports = () => {
 };
 
 
+const ReportCard = ({ report, statusConfig, getThumbnailSrc, loading = false }) => {
+    if (loading) {
+        // SKELETON PLACEHOLDER
+        return (
+            <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full animate-pulse">
+                <div className="w-full h-40 bg-gray-200" />
+                <div className="p-4 flex flex-col flex-grow">
+                    <div className="h-4 bg-gray-200 rounded w-2/3 mb-3" />
+                    <div className="h-3 bg-gray-200 rounded w-full mb-2" />
+                    <div className="h-3 bg-gray-200 rounded w-5/6 mb-2" />
+                    <div className="h-3 bg-gray-200 rounded w-3/4 mb-3" />
+                    <div className="flex justify-between mt-auto">
+                        <div className="h-5 w-20 bg-gray-200 rounded" />
+                        <div className="h-5 w-16 bg-gray-200 rounded" />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
-const ReportCard = ({ report, statusConfig, getThumbnailSrc }) => {
+    // REGULAR REPORT CARD
     const cfg = statusConfig[report.status] || {};
     const Icon = cfg.icon || FileText;
     const thumb = getThumbnailSrc(report);
@@ -310,11 +291,6 @@ const ReportCard = ({ report, statusConfig, getThumbnailSrc }) => {
                         </h3>
                     )}
 
-                    {report.description && (
-                        <p className="text-sm text-gray-600 line-clamp-3 mb-3">
-                            {report.description}
-                        </p>
-                    )}
                 </div>
 
                 <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
@@ -327,23 +303,21 @@ const ReportCard = ({ report, statusConfig, getThumbnailSrc }) => {
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-2">
-                        {report.url && (
-                            <a
-                                href={report.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition"
-                            >
-                                <Download size={14} />
-                                {report.size && (
-                                    <span className="text-xs font-medium">
-                                        {report.size}
-                                    </span>
-                                )}
-                            </a>
-                        )}
-                    </div>
+                    {report.url && (
+                        <a
+                            href={report.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition"
+                        >
+                            <Download size={14} />
+                            {report.size && (
+                                <span className="text-xs font-medium">
+                                    {report.size}
+                                </span>
+                            )}
+                        </a>
+                    )}
                 </div>
             </div>
         </div>
