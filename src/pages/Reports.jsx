@@ -36,19 +36,21 @@ const Reports = () => {
     const statuses = ['All', ...Object.keys(statusConfig)];
 
     useEffect(() => {
+        let cancelled = false;
         const load = async () => {
             setLoading(true);
             try {
                 const data = await fetchAllReports();
-                setReports(data || []);
+                if (!cancelled) setReports(data || []);
             } catch (err) {
                 console.error(err);
-                setError('Failed to load reports');
+                if (!cancelled) setError('Failed to load reports');
             } finally {
-                setLoading(false);
+                if (!cancelled) setLoading(false);
             }
         };
         load();
+        return () => { cancelled = true; };
     }, []);
 
     const filteredReports = useMemo(() => {
@@ -82,31 +84,6 @@ const Reports = () => {
     };
 
     // ------------------------------
-    // LOADING STATE
-    // ------------------------------
-    if (loading) {
-        return (
-            <div className="min-h-screen bg-gray-50 py-8">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl font-bold text-gray-900 mb-4">Research Reports</h1>
-                        <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-                        <p className="text-gray-600 max-w-2xl mx-auto mb-2">
-                            Explore research reports, drafts, and publications from cGodavari
-                        </p>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Array.from({ length: 6 }).map((_, i) => (
-                            <ReportCard key={i} loading />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    // ------------------------------
     // ERROR STATE
     // ------------------------------
     if (error) {
@@ -121,7 +98,7 @@ const Reports = () => {
     }
 
     // ------------------------------
-    // MAIN CONTENT
+    // MAIN / LOADING (kept visually consistent)
     // ------------------------------
     return (
         <div className="min-h-screen bg-gray-50 py-8">
@@ -134,8 +111,8 @@ const Reports = () => {
                     </p>
                 </div>
 
-                {/* FILTER BUTTONS */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                {/* FILTER BUTTONS - when loading keep them visually disabled (opacity/pointer-events) */}
+                <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 ${loading ? 'opacity-60 pointer-events-none' : ''}`}>
                     {Object.entries(statusConfig).map(([status, cfg]) => {
                         const Icon = cfg.icon;
                         return (
@@ -158,52 +135,65 @@ const Reports = () => {
                     })}
                 </div>
 
-                {/* SEARCH + FILTER */}
-                <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
+                {/* SEARCH + FILTER - show skeleton placeholders when loading */}
+                <div className={`bg-white rounded-lg shadow-sm p-4 mb-6 ${loading ? 'opacity-60 pointer-events-none' : ''}`}>
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                             <div className="relative flex-1 sm:flex-none sm:w-72">
                                 <Search className="absolute left-3 top-3 text-gray-400" size={18} />
-                                <input
-                                    type="text"
-                                    placeholder="Search by title..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                    className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                                />
+                                {!loading ? (
+                                    <input
+                                        type="text"
+                                        placeholder="Search by title..."
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                                    />
+                                ) : (
+                                    <div className="h-10 bg-gray-200 rounded w-full" />
+                                )}
                             </div>
 
                             <div className="relative flex-1 sm:flex-none sm:w-72">
                                 <FileText className="absolute left-3 top-3 text-gray-400" size={20} />
-                                <select
-                                    value={selectedStatus}
-                                    onChange={(e) => setSelectedStatus(e.target.value)}
-                                    className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
-                                >
-                                    {statuses.map(s => <option key={s} value={s}>{s}</option>)}
-                                </select>
+                                {!loading ? (
+                                    <select
+                                        value={selectedStatus}
+                                        onChange={(e) => setSelectedStatus(e.target.value)}
+                                        className="w-full pl-9 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
+                                    >
+                                        {statuses.map(s => <option key={s} value={s}>{s}</option>)}
+                                    </select>
+                                ) : (
+                                    <div className="h-10 bg-gray-200 rounded w-full" />
+                                )}
                             </div>
                         </div>
 
                         <div className="text-sm text-gray-600 text-left sm:text-right">
-                            Showing {filteredReports.length} reports
+                            {loading ? 'Loading...' : `Showing ${filteredReports.length} reports`}
                         </div>
                     </div>
                 </div>
 
                 {/* REPORTS GRID */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredReports.map((report, idx) => (
-                        <ReportCard
-                            key={idx}
-                            report={report}
-                            statusConfig={statusConfig}
-                            getThumbnailSrc={getThumbnailSrc}
-                        />
-                    ))}
+                    {loading
+                        ? Array.from({ length: 6 }).map((_, i) => (
+                            <ReportCard key={i} loading statusConfig={statusConfig} />
+                        ))
+                        : filteredReports.map((report, idx) => (
+                            <ReportCard
+                                key={idx}
+                                report={report}
+                                statusConfig={statusConfig}
+                                getThumbnailSrc={getThumbnailSrc}
+                            />
+                        ))
+                    }
                 </div>
 
-                {filteredReports.length === 0 && (
+                {(!loading && filteredReports.length === 0) && (
                     <div className="text-center py-12 bg-white rounded-lg shadow-md mt-6">
                         <FileText className="mx-auto text-gray-400 mb-4" size={48} />
                         <h3 className="text-lg font-semibold text-gray-900 mb-2">No reports found</h3>
@@ -216,9 +206,9 @@ const Reports = () => {
 };
 
 
-const ReportCard = ({ report, statusConfig, getThumbnailSrc, loading = false }) => {
+const ReportCard = ({ report = {}, statusConfig = {}, getThumbnailSrc = () => null, loading = false }) => {
+    // If loading, render the centralized skeleton for the card
     if (loading) {
-        // SKELETON PLACEHOLDER
         return (
             <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full animate-pulse">
                 <div className="w-full h-40 bg-gray-200" />
@@ -236,7 +226,6 @@ const ReportCard = ({ report, statusConfig, getThumbnailSrc, loading = false }) 
         );
     }
 
-    // REGULAR REPORT CARD
     const cfg = statusConfig[report.status] || {};
     const Icon = cfg.icon || FileText;
     const thumb = getThumbnailSrc(report);
@@ -291,6 +280,11 @@ const ReportCard = ({ report, statusConfig, getThumbnailSrc, loading = false }) 
                         </h3>
                     )}
 
+                    {report.description && (
+                        <p className="text-sm text-gray-600 line-clamp-3 mb-3">
+                            {report.description}
+                        </p>
+                    )}
                 </div>
 
                 <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
@@ -303,21 +297,23 @@ const ReportCard = ({ report, statusConfig, getThumbnailSrc, loading = false }) 
                         </span>
                     </div>
 
-                    {report.url && (
-                        <a
-                            href={report.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition"
-                        >
-                            <Download size={14} />
-                            {report.size && (
-                                <span className="text-xs font-medium">
-                                    {report.size}
-                                </span>
-                            )}
-                        </a>
-                    )}
+                    <div className="flex items-center gap-2">
+                        {report.url && (
+                            <a
+                                href={report.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100 transition"
+                            >
+                                <Download size={14} />
+                                {report.size && (
+                                    <span className="text-xs font-medium">
+                                        {report.size}
+                                    </span>
+                                )}
+                            </a>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
