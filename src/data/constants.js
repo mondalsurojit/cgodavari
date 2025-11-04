@@ -504,5 +504,3 @@ export const DELIVERABLES_DATA = [
     ],
   },
 ];
-
-export const REPORTS_DATA = [];

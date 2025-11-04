@@ -82,19 +82,16 @@ const Reports = () => {
     const statusCounts = getStatusCounts();
 
     const getThumbnailSrc = (report) => {
-        if (report.thumbnail) return report.thumbnail;
-        if (report.mimeType && report.mimeType.startsWith('image/') && report.id) {
-            return `https://drive.google.com/uc?export=view&id=${report.id}`;
+        if (report.id) {
+            return `https://drive.google.com/thumbnail?sz=w640&id=${report.id}`;
         }
         return null;
     };
 
-    // --- Loading Skeleton ---
     if (loading) {
         return (
             <div className="min-h-screen bg-gray-50 py-8">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    {/* Keep header visible */}
                     <div className="text-center mb-12">
                         <h1 className="text-4xl font-bold text-gray-900 mb-4">Research Reports</h1>
                         <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
@@ -103,7 +100,6 @@ const Reports = () => {
                         </p>
                     </div>
 
-                    {/* Dashboard buttons visible but disabled */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6 opacity-60 pointer-events-none">
                         {Object.entries(statusConfig).map(([status, cfg]) => {
                             const Icon = cfg.icon;
@@ -122,13 +118,11 @@ const Reports = () => {
                         })}
                     </div>
 
-                    {/* Filters visible but static */}
                     <div className="bg-white rounded-lg shadow-sm p-4 mb-6 opacity-60">
                         <div className="h-10 bg-gray-200 rounded mb-2" />
                         <div className="h-10 bg-gray-200 rounded w-1/2" />
                     </div>
 
-                    {/* Skeleton only for report cards */}
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {Array.from({ length: 6 }).map((_, i) => (
                             <div
@@ -168,8 +162,6 @@ const Reports = () => {
     return (
         <div className="min-h-screen bg-gray-50 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                {/* Header */}
                 <div className="text-center mb-12">
                     <h1 className="text-4xl font-bold text-gray-900 mb-4">Research Reports</h1>
                     <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
@@ -178,7 +170,6 @@ const Reports = () => {
                     </p>
                 </div>
 
-                {/* Dashboard buttons (equal width) */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     {Object.entries(statusConfig).map(([status, cfg]) => {
                         const Icon = cfg.icon;
@@ -202,7 +193,6 @@ const Reports = () => {
                     })}
                 </div>
 
-                {/* Filters */}
                 <div className="bg-white rounded-lg shadow-sm p-4 mb-6">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
@@ -235,7 +225,6 @@ const Reports = () => {
                     </div>
                 </div>
 
-                {/* Reports grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredReports.map((report, idx) => {
                         const cfg = statusConfig[report.status] || {};
@@ -245,7 +234,24 @@ const Reports = () => {
                         return (
                             <div key={idx} className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden flex flex-col h-full">
                                 {thumb ? (
-                                    <img src={thumb} alt={report.title} className="w-full h-40 object-cover" />
+                                    <img
+                                        src={thumb}
+                                        alt={report.title}
+                                        className="w-full h-60 object-cover"
+                                        onError={(e) => {
+                                            e.currentTarget.onerror = null;
+                                            e.currentTarget.replaceWith(
+                                                (() => {
+                                                    const div = document.createElement('div');
+                                                    div.className = 'w-full h-40 bg-gray-100 flex items-center justify-center text-gray-400';
+                                                    const icon = document.createElement('div');
+                                                    icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-file-text" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>`;
+                                                    div.appendChild(icon);
+                                                    return div;
+                                                })()
+                                            );
+                                        }}
+                                    />
                                 ) : (
                                     <div className="w-full h-40 bg-gray-100 flex items-center justify-center text-gray-400">
                                         <FileText size={32} />
@@ -264,13 +270,11 @@ const Reports = () => {
                                     </div>
 
                                     <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
-                                        {/* Left: Status tag */}
                                         <div className={`inline-flex items-center px-2 py-1 rounded-md ${cfg.bgColor} ${cfg.borderColor}`}>
                                             <Icon className={`${cfg.iconColor} mr-1`} size={14} />
                                             <span className={`text-xs font-medium ${cfg.textColor}`}>{report.status}</span>
                                         </div>
 
-                                        {/* Right: Download + Open buttons */}
                                         <div className="flex items-center gap-2">
                                             {report.url && (
                                                 <a

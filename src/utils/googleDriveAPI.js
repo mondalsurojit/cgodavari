@@ -11,16 +11,16 @@ export const FOLDER_IDS = {
 
 export async function fetchFilesFromFolder(folderId) {
   const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${GOOGLE_API_KEY}&fields=files(id,name,mimeType,size,createdTime,modifiedTime,webViewLink,webContentLink,thumbnailLink)`;
-  
+
   try {
     const response = await fetch(url);
     const data = await response.json();
-    
+
     if (data.error) {
       console.error('Google Drive API Error:', data.error);
       return [];
     }
-    
+
     return data.files || [];
   } catch (error) {
     console.error('Error fetching files:', error);
@@ -30,10 +30,13 @@ export async function fetchFilesFromFolder(folderId) {
 
 export async function fetchAllReports() {
   const allReports = [];
-  
+
   for (const [status, folderId] of Object.entries(FOLDER_IDS)) {
     const files = await fetchFilesFromFolder(folderId);
-    
+
+    // ADD THIS LINE TO DEBUG
+    console.log('Files from', status, ':', files);
+
     const formattedFiles = files.map(file => ({
       title: file.name,
       status: status,
@@ -41,12 +44,14 @@ export async function fetchAllReports() {
       size: formatFileSize(file.size),
       url: file.webContentLink,
       viewUrl: file.webViewLink,
-      id: file.id
+      id: file.id,
+      mimeType: file.mimeType,
+      thumbnailLink: file.thumbnailLink
     }));
-    
+
     allReports.push(...formattedFiles);
   }
-  
+
   return allReports;
 }
 
