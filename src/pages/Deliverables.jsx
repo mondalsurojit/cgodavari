@@ -124,7 +124,7 @@ const Deliverables = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Project Deliverables</h1>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-2">
-            Comprehensive overview of research reports, datasets, and outcomes across all project quarters
+            Comprehensive overview of project deliverables across all quarters
           </p>
           <p className="text-sm text-gray-500">Start Date: <span className="font-semibold text-gray-700">01/04/2024</span></p>
         </div>

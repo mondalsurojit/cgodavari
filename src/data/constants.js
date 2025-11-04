@@ -1,7 +1,10 @@
+import { href } from "react-router-dom";
+
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   // { label: 'About', href: '#about' },
   { label: 'Deliverables', href: '/deliverables' },
+  { label: 'Reports', href: '/reports' },
   { label: 'Members', href: '/members' },
   { label: 'Contact', href: '/contact' }
 ];
@@ -171,7 +174,7 @@ export const LOGOS = [
     "name": "12",
     "url": "/member_institutes/12.jpeg"
   }
-]
+];
 
 export const DELIVERABLES_DATA = [
   {
@@ -501,3 +504,5 @@ export const DELIVERABLES_DATA = [
     ],
   },
 ];
+
+export const REPORTS_DATA = [];
