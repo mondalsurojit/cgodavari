@@ -4,8 +4,7 @@ const GOOGLE_API_KEY = 'AIzaSyAhcVnGYySYkajD0I7cxifAIdU1l-81uZk';
 // Your folder IDs (Get from folder URL: https://drive.google.com/drive/folders/FOLDER_ID)
 export const FOLDER_IDS = {
   'Final Reports': '1OOVbepjO9E26-vecA_hzyudpZEAi5Oxu',
-  'Reviewed by cGanga': '1aS0YM_2X2fua1sf0X4-UhM9s0U5BzPUy',
-  'Draft Reports Under Review': '11bFitIadfDk_eiwvJjjLvnDEzUjkp8cG',
+  'Drafts Under Review/Finalisation': '11bFitIadfDk_eiwvJjjLvnDEzUjkp8cG',
   'Preliminary Drafts': '1BPCU1N2EyGO-0vj0Jlu91lJVZH3pwwvg'
 };
 
