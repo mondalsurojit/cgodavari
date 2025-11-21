@@ -71,42 +71,60 @@ export const TEAM_MEMBERS = [
     name: "Asif Qureshi",
     designation: "Faculty Member",
     institution: "Dept. of Civil Engineering",
-    image: "/members/1.jpeg"
+    image: "/members/1.jpeg",
+    facultyWebsite: "https://people.iith.ac.in/asif/",
+    linkedin: "https://www.linkedin.com/in/asif-qureshi-220204303",
+    email: "asif@ce.iith.ac.in"
   },
   {
     id: 2,
     name: "Debraj Bhattacharyya",
     designation: "Faculty Member",
     institution: "Dept. of Civil Engineering",
-    image: "/members/2.jpeg"
+    image: "/members/2.jpeg",
+    facultyWebsite: "https://people.iith.ac.in/debrajb/",
+    linkedin: "https://www.linkedin.com/in/debraj-bhattacharyya-9286a115",
+    email: "debrajb@ce.iith.ac.in"
   },
   {
     id: 3,
     name: "Pritha Chatterjee",
     designation: "Faculty Member",
     institution: "Dept. of Civil Engineering",
-    image: "/members/3.jpeg"
+    image: "/members/3.jpeg",
+    facultyWebsite: "https://iith.ac.in/ce/pritha/",
+    linkedin: "https://www.linkedin.com/in/pritha-chatterjee-25987a179",
+    email: "pritha@ce.iith.ac.in"
   },
   {
     id: 4,
     name: "Satish Regonda",
     designation: "Faculty Member",
     institution: "Dept. of Civil Engineering",
-    image: "/members/4.jpeg"
+    image: "/members/4.jpeg",
+    facultyWebsite: "https://sites.google.com/iith.ac.in/satishregonda/home",
+    linkedin: "https://www.linkedin.com/in/satish-regonda-3a08a115",
+    email: "satishr@ce.iith.ac.in"
   },
   {
     id: 5,
     name: "Anindita Majumdar",
     designation: "Faculty Member",
     institution: "Dept. of Liberal Arts",
-    image: "/members/5.jpeg"
+    image: "/members/5.jpeg",
+    facultyWebsite: "https://sites.google.com/iith.ac.in/aninditamajumdar/home",
+    linkedin: "https://www.linkedin.com/in/anindita-majumdar-563170b0",
+    email: "anindita@la.iith.ac.in"
   },
   {
     id: 6,
     name: "K.P. Prabheesh",
     designation: "Faculty Member",
     institution: "Dept. of Liberal Arts",
-    image: "/members/6.jpeg"
+    image: "/members/6.jpeg",
+    facultyWebsite: "https://sites.google.com/la.iith.ac.in/prabheesh/home",
+    linkedin: "https://www.linkedin.com/in/k-p-prabheesh-580b23278",
+    email: "prabheesh@la.iith.ac.in"
   }
 ];
 

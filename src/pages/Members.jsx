@@ -22,6 +22,9 @@ const Members = () => {
               designation={member.designation}
               institution={member.institution}
               image={member.image}
+              facultyWebsite={member.facultyWebsite}
+              linkedin={member.linkedin}
+              email={member.email}
             />
           ))}
         </div>
