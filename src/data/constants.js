@@ -65,68 +65,141 @@ export const RESEARCH_AREAS = [
   }
 ];
 
-export const TEAM_MEMBERS = [
-  {
-    id: 1,
-    name: "Asif Qureshi",
-    designation: "Faculty Member",
-    institution: "Dept. of Civil Engineering",
-    image: "/members/1.jpeg",
-    facultyWebsite: "https://people.iith.ac.in/asif/",
-    linkedin: "https://www.linkedin.com/in/asif-qureshi-220204303",
-    email: "asif@ce.iith.ac.in"
-  },
-  {
-    id: 2,
-    name: "Debraj Bhattacharyya",
-    designation: "Faculty Member",
-    institution: "Dept. of Civil Engineering",
-    image: "/members/2.jpeg",
-    facultyWebsite: "https://people.iith.ac.in/debrajb/",
-    linkedin: "https://www.linkedin.com/in/debraj-bhattacharyya-9286a115",
-    email: "debrajb@ce.iith.ac.in"
-  },
-  {
-    id: 3,
-    name: "Pritha Chatterjee",
-    designation: "Faculty Member",
-    institution: "Dept. of Civil Engineering",
-    image: "/members/3.jpeg",
-    facultyWebsite: "https://iith.ac.in/ce/pritha/",
-    linkedin: "https://www.linkedin.com/in/pritha-chatterjee-25987a179",
-    email: "pritha@ce.iith.ac.in"
-  },
-  {
-    id: 4,
-    name: "Satish Regonda",
-    designation: "Faculty Member",
-    institution: "Dept. of Civil Engineering",
-    image: "/members/4.jpeg",
-    facultyWebsite: "https://sites.google.com/iith.ac.in/satishregonda/home",
-    linkedin: "https://www.linkedin.com/in/satish-regonda-3a08a115",
-    email: "satishr@ce.iith.ac.in"
-  },
-  {
-    id: 5,
-    name: "Anindita Majumdar",
-    designation: "Faculty Member",
-    institution: "Dept. of Liberal Arts",
-    image: "/members/5.jpeg",
-    facultyWebsite: "https://sites.google.com/iith.ac.in/aninditamajumdar/home",
-    linkedin: "https://www.linkedin.com/in/anindita-majumdar-563170b0",
-    email: "anindita@la.iith.ac.in"
-  },
-  {
-    id: 6,
-    name: "K.P. Prabheesh",
-    designation: "Faculty Member",
-    institution: "Dept. of Liberal Arts",
-    image: "/members/6.jpeg",
-    facultyWebsite: "https://sites.google.com/la.iith.ac.in/prabheesh/home",
-    linkedin: "https://www.linkedin.com/in/k-p-prabheesh-580b23278",
-    email: "prabheesh@la.iith.ac.in"
-  }
-];
+export const TEAM = {
+  mentor: [
+    {
+      id: 1,
+      name: "B. S. Murty",
+      designation: "Director",
+      image: "/members/director.png",
+      website: "https://iith.ac.in/msme/bsm/",
+      email: "director@iith.ac.in",
+      linkedin: "https://in.linkedin.com/in/prof-b-s-murty-3b1370271"
+    }
+  ],
+
+  faculty: [
+    {
+      id: 1,
+      name: "Asif Qureshi",
+      designation: "Professor",
+      institution: "Dept. of Civil Engineering",
+      image: "/members/faculty/1.jpeg",
+      website: "https://people.iith.ac.in/asif/",
+      email: "asif@ce.iith.ac.in",
+      linkedin: "https://www.linkedin.com/in/asif-qureshi-220204303"
+    },
+    {
+      id: 2,
+      name: "Debraj Bhattacharyya",
+      designation: "Professor",
+      institution: "Dept. of Civil Engineering",
+      image: "/members/faculty/2.jpeg",
+      website: "https://people.iith.ac.in/debrajb/",
+      email: "debrajb@ce.iith.ac.in",
+      linkedin: "https://www.linkedin.com/in/debraj-bhattacharyya-9286a115"
+    },
+    {
+      id: 3,
+      name: "K. P. Prabheesh",
+      designation: "Professor",
+      institution: "Dept. of Liberal Arts",
+      image: "/members/faculty/3.jpeg",
+      website: "https://sites.google.com/la.iith.ac.in/prabheesh/home",
+      email: "prabheesh@la.iith.ac.in",
+      linkedin: "https://www.linkedin.com/in/k-p-prabheesh-580b23278"
+    },
+    {
+      id: 4,
+      name: "Satish Regonda",
+      designation: "Associate Professor",
+      institution: "Dept. of Civil Engineering",
+      image: "/members/faculty/4.jpeg",
+      website: "https://sites.google.com/iith.ac.in/satishregonda/home",
+      email: "satishr@ce.iith.ac.in",
+      linkedin: "https://www.linkedin.com/in/satish-regonda-3a08a115"
+    },
+    {
+      id: 5,
+      name: "Anindita Majumdar",
+      designation: "Associate Professor",
+      institution: "Dept. of Liberal Arts",
+      image: "/members/faculty/5.jpeg",
+      website: "https://sites.google.com/iith.ac.in/aninditamajumdar/home",
+      email: "anindita@la.iith.ac.in",
+      linkedin: "https://www.linkedin.com/in/anindita-majumdar-563170b0"
+    }
+  ],
+
+  projectStaff: [
+    {
+      id: 1,
+      name: "Dr. Mir Sumira",
+      designation: "Project Staff",
+      image: "/members/staffs/1.png"
+    },
+    {
+      id: 2,
+      name: "Dr. Sri Vidhya Mummidi",
+      designation: "Project Staff",
+      image: "/members/staffs/2.jpg"
+    },
+    {
+      id: 3,
+      name: "Syed Azharuddin Hashmi",
+      designation: "Project Staff",
+      image: "/members/staffs/3.jpg"
+    },
+    {
+      id: 4,
+      name: "Srija Dangudubiyyam",
+      designation: "Project Staff",
+      image: "/members/staffs/4.jpeg"
+    },
+    {
+      id: 5,
+      name: "Aaliya Maryam",
+      designation: "Project Staff",
+      image: "/members/staffs/5.jpeg"
+    },
+    {
+      id: 6,
+      name: "Dhanshri Bawankar",
+      designation: "Project Staff",
+      image: "/members/staffs/6.jpg"
+    },
+    {
+      id: 7,
+      name: "Soumyaranjan Sahoo",
+      designation: "Project Staff",
+      image: "/members/staffs/7.jpg"
+    },
+    {
+      id: 8,
+      name: "Rahul Thangallapally",
+      designation: "Project Staff",
+      image: "/members/staffs/8.jpg"
+    },
+    {
+      id: 9,
+      name: "Naresh Essapally",
+      designation: "Project Staff",
+      image: "/members/staffs/9.jpg"
+    },
+    {
+      id: 10,
+      name: "Fathima Fakiha Imam Khan",
+      designation: "Project Staff",
+      image: "/members/staffs/10.jpeg"
+    },
+    {
+      id: 11,
+      name: "Ashis Sarkar",
+      designation: "Project Staff",
+      image: "/members/staffs/11.jpeg"
+    }
+  ]
+};
 
 export const CONTACT_INFO = {
   address: {

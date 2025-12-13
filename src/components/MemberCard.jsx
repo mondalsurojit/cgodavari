@@ -1,7 +1,7 @@
 import React from 'react';
 import { ExternalLink, Linkedin, Mail } from "lucide-react";
 
-const MemberCard = ({ name, designation, institution, image, facultyWebsite, linkedin, email }) => {
+const MemberCard = ({ name, designation, institution, image, website, linkedin, email }) => {
   return (
     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
       <div className="aspect-square overflow-hidden">
@@ -39,9 +39,9 @@ const MemberCard = ({ name, designation, institution, image, facultyWebsite, lin
           )}
 
           {/* Website */}
-          {facultyWebsite && (
+          {website && (
             <a
-              href={facultyWebsite}
+              href={website}
               target="_blank"
               rel="noopener noreferrer"
               title="Faculty Website"
