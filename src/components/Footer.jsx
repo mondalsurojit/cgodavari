@@ -16,7 +16,7 @@ const Footer = () => {
           {/* Left Section */}
           <div>
             <div className="flex items-center mb-4">
-              {/* Updated Logo — transparent, no border, larger */}
+              {/* Logo — transparent, no border */}
               <img
                 src="/cgodavari-logo2.png"
                 alt="cGodavari Logo"
@@ -73,7 +73,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
-          <p>© 2024 cGodavari - IIT Hyderabad. All rights reserved.</p>
+          <p>© 2024 cGodavari: IIT Hyderabad. All rights reserved.</p>
         </div>
       </div>
     </footer>
