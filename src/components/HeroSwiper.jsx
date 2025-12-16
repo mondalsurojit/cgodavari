@@ -72,11 +72,10 @@ const HeroSwiper = () => {
           <SwiperSlide key={img.id}>
             <div className="relative w-full h-full">
               <img
-                src={img.url}
+                src={`https://drive.google.com/thumbnail?id=${img.id}&sz=w2000`}
                 alt={img.name}
                 className="w-full h-full object-cover"
               />
-
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs sm:text-sm px-4 py-2 rounded-full w-[95%] sm:w-[70%] text-center">
                 {img.name}
               </div>
@@ -96,9 +95,8 @@ const HeroSwiper = () => {
 
 const NavButton = ({ dir }) => (
   <div
-    className={`swiper-${dir} absolute ${
-      dir === "prev" ? "left-2" : "right-2"
-    } top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full cursor-pointer z-10`}
+    className={`swiper-${dir} absolute ${dir === "prev" ? "left-2" : "right-2"
+      } top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full cursor-pointer z-10`}
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
