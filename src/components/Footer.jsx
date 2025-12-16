@@ -11,7 +11,7 @@ const ICONS = {
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Left Section */}
           <div>
@@ -27,21 +27,19 @@ const Footer = () => {
                 <p className="text-sm text-gray-400">IIT Hyderabad</p>
               </div>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm max-w-80">
               Advancing sustainable solutions for Godavari River Basin management through cutting-edge research and innovation.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-bold mb-4 pt-2">Quick Links</h4>
+            <ul className="grid grid-flow-col auto-cols-max grid-rows-4 gap-x-10 gap-y-2 text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
+                  <a href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -51,7 +49,7 @@ const Footer = () => {
 
           {/* Follow Us */}
           <div>
-            <h4 className="font-bold mb-4">Follow Us</h4>
+            <h4 className="font-bold mb-4 pt-2">Follow Us</h4>
             <div className="flex space-x-4">
               {SOCIAL_LINKS.map((social) => {
                 const IconComponent = ICONS[social.name];

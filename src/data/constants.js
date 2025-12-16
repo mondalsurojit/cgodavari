@@ -2,10 +2,11 @@ import { href } from "react-router-dom";
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
-  // { label: 'About', href: '#about' },
+  { label: 'About', href: '/#about' },
   { label: 'Deliverables', href: '/deliverables' },
   { label: 'Reports', href: '/reports' },
   { label: 'Members', href: '/members' },
+  // { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' }
 ];
 
@@ -13,12 +14,12 @@ export const HERO_SLIDES = [
   {
     id: 1,
     image: '/hero/1.jpeg',
-    title: 'MoA Signing and Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; February 28, 2024',
+    title: 'MoA Signing & Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; Feb 28, 2024',
   },
   {
     id: 2,
     image: '/hero/2.jpeg',
-    title: 'MoA Signing and Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; February 28, 2024',
+    title: 'MoA Signing & Initiation Workshop of CAMP for 6 River Basin held at DAIC, New Delhi; Feb 28, 2024',
   },
   {
     id: 3,
@@ -28,12 +29,12 @@ export const HERO_SLIDES = [
   {
     id: 4,
     image: '/hero/4.jpeg',
-    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May 2024',
+    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May, 2024',
   },
   {
     id: 5,
     image: '/hero/5.jpeg',
-    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May 2024',
+    title: 'Joint review committee meeting held at IIT Hyderabad, 23 May, 2024',
   },
 ];
 

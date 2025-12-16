@@ -109,6 +109,7 @@ const Reports = () => {
                     <p className="text-gray-600 max-w-2xl mx-auto mb-2">
                         Explore research reports, drafts, and publications from cGodavari
                     </p>
+                    <p className="text-sm text-gray-500">Start Date: <span className="font-semibold text-gray-700">01/04/2024</span></p>
                 </div>
 
                 {/* FILTER BUTTONS - when loading keep them visually disabled (opacity/pointer-events) */}
