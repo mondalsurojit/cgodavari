@@ -2,11 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { fetchAllHomeImages } from "../utils/googleDriveAPI";
+
+/* ---------------- HELPERS ---------------- */
+
+const extractLeadingNumber = (name = "") => {
+  const match = name.match(/^(\d+)/);
+  return match ? parseInt(match[1], 10) : Number.MAX_SAFE_INTEGER;
+};
 
 /* ---------------- MAIN ---------------- */
 
@@ -22,7 +30,12 @@ const HeroSwiper = () => {
     const load = async () => {
       try {
         const data = await fetchAllHomeImages();
-        if (alive) setSlides(data || []);
+        const sortedSlides = [...(data || [])].sort(
+          (a, b) =>
+            extractLeadingNumber(a.name) - extractLeadingNumber(b.name)
+        );
+
+        if (alive) setSlides(sortedSlides);
       } catch (err) {
         console.error(err);
         if (alive) setError("Failed to load hero images");
@@ -76,6 +89,7 @@ const HeroSwiper = () => {
                 alt={img.name}
                 className="w-full h-full object-cover"
               />
+
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs sm:text-sm px-4 py-2 rounded-full w-[95%] sm:w-[70%] text-center">
                 {img.name}
               </div>
@@ -95,22 +109,15 @@ const HeroSwiper = () => {
 
 const NavButton = ({ dir }) => (
   <div
-    className={`swiper-${dir} absolute ${dir === "prev" ? "left-2" : "right-2"
-      } top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full cursor-pointer z-10`}
+    className={`swiper-${dir} absolute ${
+      dir === "prev" ? "left-2" : "right-2"
+    } top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full cursor-pointer z-10`}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-4 w-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      {dir === "prev" ? (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-      ) : (
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-      )}
-    </svg>
+    {dir === "prev" ? (
+      <ChevronLeft className="h-4 w-4" />
+    ) : (
+      <ChevronRight className="h-4 w-4" />
+    )}
   </div>
 );
 
