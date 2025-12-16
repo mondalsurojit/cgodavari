@@ -135,68 +135,74 @@ export const TEAM = {
     {
       id: 1,
       name: "Dr. Mir Sumira",
-      designation: "Project Staff",
+      designation: "Project Scientist",
       image: "/members/staffs/1.png"
     },
     {
       id: 2,
       name: "Dr. Sri Vidhya Mummidi",
-      designation: "Project Staff",
+      designation: "Project Scientist",
       image: "/members/staffs/2.jpg"
     },
     {
       id: 3,
-      name: "Syed Azharuddin Hashmi",
-      designation: "Project Staff",
-      image: "/members/staffs/3.jpg"
-    },
-    {
-      id: 4,
       name: "Srija Dangudubiyyam",
-      designation: "Project Staff",
+      designation: "Research Associate",
       image: "/members/staffs/4.jpeg"
     },
     {
+      id: 4,
+      name: "Syed Azharuddin Hashmi",
+      designation: "Project Associate",
+      image: "/members/staffs/3.jpg"
+    },
+    {
       id: 5,
-      name: "Aaliya Maryam",
-      designation: "Project Staff",
-      image: "/members/staffs/5.jpeg"
-    },
-    {
-      id: 6,
-      name: "Dhanshri Bawankar",
-      designation: "Project Staff",
-      image: "/members/staffs/6.jpg"
-    },
-    {
-      id: 7,
-      name: "Soumyaranjan Sahoo",
-      designation: "Project Staff",
+      name: "Soumya Ranjan Sahoo",
+      designation: "Project Assistant",
       image: "/members/staffs/7.jpg"
     },
     {
-      id: 8,
-      name: "Rahul Thangallapally",
-      designation: "Project Staff",
+      id: 6,
+      name: "Thangalapally Rahul",
+      designation: "Project Assistant",
       image: "/members/staffs/8.jpg"
     },
     {
-      id: 9,
-      name: "Naresh Essapally",
-      designation: "Project Staff",
+      id: 7,
+      name: "Essapally Naresh",
+      designation: "Project Assistant",
       image: "/members/staffs/9.jpg"
     },
     {
-      id: 10,
+      id: 8,
       name: "Fathima Fakiha Imam Khan",
-      designation: "Project Staff",
+      designation: "Project Assistant",
       image: "/members/staffs/10.jpeg"
     },
     {
-      id: 11,
+      id: 9,
+      name: "Dhanshri Bawankar",
+      designation: "Project Assistant",
+      image: "/members/staffs/6.jpg"
+    },
+    {
+      id: 10,
       name: "Ashis Sarkar",
-      designation: "Project Staff",
+      designation: "Project Assistant",
       image: "/members/staffs/11.jpeg"
+    },
+    {
+      id: 11,
+      name: "Aaliya Mariam",
+      designation: "Project Assistant",
+      image: "/members/staffs/5.jpeg"
+    },
+    {
+      id: 12,
+      name: "Surojit Mondal",
+      designation: "Intern",
+      image: "/members/staffs/12.jpg"
     }
   ]
 };
