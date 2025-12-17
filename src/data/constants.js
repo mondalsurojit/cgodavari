@@ -196,7 +196,7 @@ export const TEAM = {
     {
       id: 11,
       name: "Aaliya Mariam",
-      designation: "Project Assistant",
+      designation: "Project Associate",
       image: "/members/staffs/5.jpeg"
     },
     {
