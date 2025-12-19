@@ -46,20 +46,6 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-
-            {/* Phone */}
-            <div className="flex items-start space-x-4">
-              <Phone className="text-blue-600 mt-1" size={24} />
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                <a
-                  href={`tel:${CONTACT_INFO.phone}`}
-                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
-                >
-                  {CONTACT_INFO.phone}
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Google Map Embed */}
