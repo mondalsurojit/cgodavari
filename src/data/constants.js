@@ -213,7 +213,7 @@ export const CONTACT_INFO = {
     line1: 'Technological Research Park, IIT Hyderabad',
     line2: 'Near NH-65, Sangareddy, Kandi, Telangana 502285',
   },
-  email: 'asif@ce.iith.ac.in',
+  email: ['asif@ce.iith.ac.in', 'cGodavari.iith@gmail.com'],
   phone: '+91 040 2301 6000'
 };
 

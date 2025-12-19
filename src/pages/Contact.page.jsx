@@ -35,11 +35,14 @@ const Contact = () => {
               <Mail className="text-blue-600 mt-1" size={24} />
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200"
-                >
-                  {CONTACT_INFO.email}
+                <a href={`mailto:${CONTACT_INFO.email}`}
+                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200">
+                  Prof. Asif Qureshi (Principal Investigator): {CONTACT_INFO.email[0]}
+                </a>
+                <br />
+                <a href={`mailto:${CONTACT_INFO.email}`}
+                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200">
+                  {CONTACT_INFO.email[1]}
                 </a>
               </div>
             </div>
@@ -74,7 +77,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 
