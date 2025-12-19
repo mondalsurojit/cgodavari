@@ -83,7 +83,7 @@ export const TEAM = {
     {
       id: 1,
       name: "Asif Qureshi",
-      designation: "Professor, Principal Investigator",
+      designation: "Principal Investigator, Professor",
       institution: "Dept. of Civil Engineering",
       image: "/members/faculty/1.jpeg",
       website: "https://people.iith.ac.in/asif/",
