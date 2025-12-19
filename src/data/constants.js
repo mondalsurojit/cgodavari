@@ -165,7 +165,7 @@ export const TEAM = {
     },
     {
       id: 6,
-      name: "Thangalapally Rahul",
+      name: "Thangallapally Rahul",
       designation: "Project Assistant",
       image: "/members/staffs/8.jpg"
     },
@@ -213,8 +213,12 @@ export const CONTACT_INFO = {
     line1: 'Technological Research Park, IIT Hyderabad',
     line2: 'Near NH-65, Sangareddy, Kandi, Telangana 502285',
   },
-  email: ['asif@ce.iith.ac.in', 'cGodavari.iith@gmail.com'],
-  phone: '+91 040 2301 6000'
+  organizationEmail: 'cGodavari.iith@gmail.com',
+  contactPerson: {
+    name: 'Prof. Asif Qureshi',
+    role: 'Principal Investigator',
+    email: 'asif@ce.iith.ac.in',
+  },
 };
 
 export const SOCIAL_LINKS = [

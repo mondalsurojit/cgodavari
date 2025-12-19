@@ -1,54 +1,83 @@
 import React from 'react';
-import { MapPin, Mail, Phone } from 'lucide-react';
+import { MapPin, Mail, User } from 'lucide-react';
 import { CONTACT_INFO } from '../data/constants';
 
 const Contact = () => {
+  const { address, organizationEmail, contactPerson } = CONTACT_INFO;
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4">
+        
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Contact Us
+          </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
         {/* Grid Layout */}
         <div className="grid md:grid-cols-2 gap-y-6 gap-x-4 md:gap-x-0 items-start">
-          {/* Contact Info */}
+          
+          {/* Left Column */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+            <h3 className="text-2xl font-bold text-gray-900">
+              Get In Touch
+            </h3>
+
+            {/* Contact Person (No Card Styling) */}
+            <div className="flex items-start space-x-4 max-w-md">
+              <User className="text-blue-600 mt-1" size={24} />
+              <div>
+                <p className="text-gray-800 font-medium">
+                  {contactPerson.name}
+                </p>
+                <p className="text-gray-600">
+                  {contactPerson.role}
+                </p>
+                <a
+                  href={`mailto:${contactPerson.email}`}
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  {contactPerson.email}
+                </a>
+              </div>
+            </div>
 
             {/* Address */}
             <div className="flex items-start space-x-4">
               <MapPin className="text-blue-600 mt-1" size={24} />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Address</h4>
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Address
+                </h4>
                 <p className="text-gray-600 leading-relaxed">
-                  {CONTACT_INFO.address.line1}<br />
-                  {CONTACT_INFO.address.line2}<br />
+                  {address.line1}
+                  <br />
+                  {address.line2}
                 </p>
               </div>
             </div>
 
-            {/* Email */}
+            {/* Organisation Email (Blue like Contact Person Email) */}
             <div className="flex items-start space-x-4">
               <Mail className="text-blue-600 mt-1" size={24} />
               <div>
-                <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                <a href={`mailto:${CONTACT_INFO.email}`}
-                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200">
-                  Prof. Asif Qureshi (Principal Investigator): {CONTACT_INFO.email[0]}
-                </a>
-                <br />
-                <a href={`mailto:${CONTACT_INFO.email}`}
-                  className="text-gray-600 hover:text-gray-800 transition-colors duration-200">
-                  {CONTACT_INFO.email[1]}
+                <h4 className="font-semibold text-gray-900 mb-1">
+                  Email
+                </h4>
+                <a
+                  href={`mailto:${organizationEmail}`}
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                >
+                  {organizationEmail}
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Google Map Embed */}
+          {/* Google Map */}
           <div className="rounded-lg overflow-hidden shadow-lg">
             <iframe
               title="Civil Engineering Block B - IIT Hyderabad"
@@ -56,14 +85,13 @@ const Contact = () => {
               width="100%"
               height="400"
               style={{ border: 0 }}
-              allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            />
           </div>
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 
