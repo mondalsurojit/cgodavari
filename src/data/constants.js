@@ -177,30 +177,24 @@ export const TEAM = {
     },
     {
       id: 8,
-      name: "Fathima Fakiha Imam Khan",
-      designation: "Project Assistant",
-      image: "/members/staffs/10.jpeg"
-    },
-    {
-      id: 9,
       name: "Dhanshri Bawankar",
       designation: "Project Assistant",
       image: "/members/staffs/6.jpg"
     },
     {
-      id: 10,
+      id: 9,
       name: "Ashis Sarkar",
       designation: "Project Assistant",
       image: "/members/staffs/11.jpeg"
     },
     {
-      id: 11,
+      id: 10,
       name: "Aaliya Mariam",
       designation: "Project Associate",
       image: "/members/staffs/5.jpeg"
     },
     {
-      id: 12,
+      id: 11,
       name: "Surojit Mondal",
       designation: "Intern",
       image: "/members/staffs/12.jpg"
