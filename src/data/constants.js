@@ -159,27 +159,27 @@ export const TEAM = {
     },
     {
       id: 5,
+      name: "Aaliya Mariam",
+      designation: "Project Associate",
+      image: "/members/staffs/5.jpeg"
+    },
+    {
+      id: 6,
       name: "Soumya Ranjan Sahoo",
       designation: "Project Assistant",
       image: "/members/staffs/7.jpg"
     },
     {
-      id: 6,
+      id: 7,
       name: "Thangallapally Rahul",
       designation: "Project Assistant",
       image: "/members/staffs/8.jpg"
     },
     {
-      id: 7,
+      id: 8,
       name: "Essapally Naresh",
       designation: "Project Assistant",
       image: "/members/staffs/9.jpg"
-    },
-    {
-      id: 8,
-      name: "Dhanshri Bawankar",
-      designation: "Project Assistant",
-      image: "/members/staffs/6.jpg"
     },
     {
       id: 9,
@@ -189,12 +189,18 @@ export const TEAM = {
     },
     {
       id: 10,
-      name: "Aaliya Mariam",
-      designation: "Project Associate",
-      image: "/members/staffs/5.jpeg"
+      name: "Rathlavath Lekha",
+      designation: "Project Assistant",
+      image: "/members/staffs/6.jpeg"
     },
     {
       id: 11,
+      name: "Srividhya Kuncham",
+      designation: "Project Assistant",
+      image: "/members/staffs/13.jpeg"
+    },
+    {
+      id: 12,
       name: "Surojit Mondal",
       designation: "Intern",
       image: "/members/staffs/12.jpg"
